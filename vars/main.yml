@@ -1,0 +1,12 @@
+subscribe_rhn: true
+repo_destination: /var/www/html
+repo_filename: rhel7
+mirror_ip_address: ''
+rhsm_username: rjio
+rhsm_password: p@ssw0rd
+rhsm_poolid: "8...z"
+rhsm_consumer_name: "rjio.com"
+rhsm_repos:
+  - rhel-7-server-rpms
+  - rhel-7-server-extras-rpms
+  - rhel-7-server-rh-common-rpms

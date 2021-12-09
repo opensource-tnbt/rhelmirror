@@ -1,0 +1,18 @@
+- block:
+    - name: Reposync the required repos.
+      shell: "reposync --gpgcheck -l --repoid={{ item }} --download_path={{ repo_destination }} --download-metadata --downloadcomps" 
+      with_items: "{{ rhsm_repos }}"
+
+    - name: Create repositories from local mirror
+      shell: "for DIR in `find {{ repo_destination }}/  -maxdepth 1 -mindepth 1`; do createrepo -v $DIR -g $DIR/comps.xml; done; > /dev/null"
+
+    - name: create repo file
+      yum_repository:
+        name: "{{ item }}"
+        description: "{{ item }}"
+        enabled: yes
+        baseurl: http://{{ mirror_ip_address }}/{{ item }}
+        gpgcheck: no
+        file: "{{ repo_filename }}"
+      with_items: "{{ rhsm_repos }}"
+  become: True
