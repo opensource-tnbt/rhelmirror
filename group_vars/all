@@ -1,2 +1,5 @@
 # set the relative path from the inventory file to the vars/ directory.
 vars_files_relative: ".."
+ansible_connection: ssh
+ansible_user: root
+ansible_ssh_pass: root

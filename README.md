@@ -36,20 +36,17 @@ Please set it to appropriate value
 
 ## System preparation
 
-In order to create mirrors, several packages need to be installed on the
+In order to create mirror, several packages need to be installed on the
 system, and firewall or iptables rules need to be created to enable HTTP
 access. In order to do it, several tasks tagged with `prepare_system` are
 executed.
 
 ## Mirror creation
 
-This playbook can create mirrors based on the subscribed repos. It relies on
-a list of mirrors being defined, using the `mirrors` var:
-
-It expects a list of List of RedHat repositories to be enabled. Please update
+This playbook can create mirror based on the subscribed repos.It expects a list of List of RedHat repositories to be enabled. Please update
 `rhsm_repos` variable.
 
-To limit the playbook to just create the mirrors, please executed with
+To limit the playbook to just create the mirror, please execute with
 --tags create_miror
 
 ## Repo file to be used by clients.
